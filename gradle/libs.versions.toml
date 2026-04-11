@@ -1,0 +1,13 @@
+[versions]
+appcompat = "1.7.1"
+gradle = "9.1.0"
+material = "1.13.0"
+usb-serial-for-android = "3.10.0"  # maven jitpack
+#usb-serial-for-android = "3.8.0beta"  # maven local
+
+[libraries]
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "gradle" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+usb-serial-for-android = { group = "com.github.mik3y", name = "usb-serial-for-android", version.ref = "usb-serial-for-android" }
+#usb-serial-for-android = { group = "com.github.mik3y", name = "usb-serial-for-android", version.ref = "usb-serial-for-android", changing = true } # maven local
