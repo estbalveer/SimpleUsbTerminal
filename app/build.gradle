@@ -4,49 +4,46 @@ plugins {
 }
 
 android {
+    namespace 'de.kai_morich.simple_usb_terminal'
     compileSdkVersion 36
-    defaultConfig {
-        targetSdkVersion 36
-        minSdkVersion 21
-        vectorDrawables.useSupportLibrary true
 
+    defaultConfig {
         applicationId "de.kai_morich.simple_usb_terminal"
+        minSdkVersion 21
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
+
+        vectorDrawables.useSupportLibrary true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures {
-        buildConfig true
-    }
-    namespace 'de.kai_morich.simple_usb_terminal'
 
     buildFeatures {
         buildConfig true
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 
+// Dummy task to satisfy IDE sync which mistakenly looks for Kotlin DSL task in Groovy project
+tasks.register("prepareKotlinBuildScriptModel") {}
+
 dependencies {
-    implementation 'com.github.mik3y:usb-serial-for-android:3.8.0' // maven jitpack
-    //implementation('com.github.mik3y:usb-serial-for-android:3.8.0beta') { changing = true } // maven local
-
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.core:core-ktx:1.17.0'
-
-    // upstream chagnes
     implementation libs.usb.serial.for.android
     implementation libs.androidx.appcompat
     implementation libs.material
+    implementation libs.androidx.core.ktx
 }
